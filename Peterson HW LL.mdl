@@ -1,0 +1,163 @@
+{UTF-8}
+avg time between fires=
+	3
+	~	Year [0.1,10,0.1]
+	~	Peterson's appendix refers to this quantity as fire frequency, but in this teaching version it is kept explicitly as the average time between fires.	|
+
+fire frequency=
+	1/avg time between fires
+	~	1/Year
+	~	Defined here as the inverse of average time between fires so that fire frequency keeps its standard dimensional meaning of fires per unit time.	|
+
+"HardWood (HW)"= INTEG (
+	HW growth-HW destruction,
+		init HW)
+	~	Dmnl
+	~		|
+
+HW destruction=
+	"HW destruction rate (f)"*"HardWood (HW)"*("LongLeaf (LL)")^3
+	~	1/Year
+	~		|
+
+"HW destruction rate (f)"=
+	proportion of HW killed by a fire*fire frequency
+	~	1/Year
+	~		|
+
+HW growth=
+	"HW growth rate (r)"*"HardWood (HW)"*"LongLeaf (LL)"
+	~	1/Year
+	~		|
+
+"HW growth rate (r)"=
+	0.075
+	~	1/Year [0,1,0.001]
+	~		|
+
+init HW=
+	0.329175
+	~	Dmnl [0,1,0.001]
+	~		|
+
+"LongLeaf (LL)"=
+	1-"HardWood (HW)"
+	~	Dmnl
+	~		|
+
+proportion of HW killed by a fire=
+	0.5
+	~	Dmnl [0,1,0.01]
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.0625
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$-1--1--1,0,|12||-1--1--1|-1--1--1|-1--1--1|-1--1--1|-1--1--1|96,96,100,0
+10,1,"HardWood (HW)",967,188,61,39,3,3,0,0,-1,0,0,0,0,0,0,0,0,0
+12,2,48,779,185,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,3,5,2,100,0,0,22,0,192,0,-1--1--1,,1|(808,185)|
+1,4,5,1,4,0,0,22,0,192,0,-1--1--1,,1|(873,185)|
+11,5,0,834,185,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,6,HW growth,834,210,25,17,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,7,"HW growth rate (r)",754,287,33,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,8,1,5,1,0,43,0,0,192,0,-1--1--1,,1|(862,117)|
+1,9,7,6,1,0,43,0,0,192,0,-1--1--1,,1|(772,249)|
+10,10,init HW,961,81,23,10,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,11,10,1,0,0,0,0,0,192,1,-1--1--1,,1|(0,0)|
+10,12,"LongLeaf (LL)",967,316,29,15,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,13,1,12,0,0,45,0,0,192,0,-1--1--1,,1|(0,0)|
+1,14,12,6,1,0,43,0,0,64,0,-1--1--1,,1|(894,322)|
+12,15,48,1161,182,10,6,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,16,18,1,100,0,0,22,0,192,0,-1--1--1,,1|(1054,182)|
+1,17,18,15,4,0,0,22,0,192,0,-1--1--1,,1|(1122,182)|
+11,18,0,1087,182,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,19,HW destruction,1087,209,34,19,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,20,1,18,1,0,43,0,0,192,0,-1--1--1,,1|(1052,109)|
+1,21,12,19,1,0,43,0,0,64,0,-1--1--1,,1|(1049,315)|
+10,22,"HW destruction rate (f)",1213,255,44,18,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,23,proportion of HW killed by a fire,1271,345,51,19,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,24,fire frequency,1373,292,31,19,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,25,avg time between fires,1458,354,40,16,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,26,22,19,1,0,43,0,0,64,0,-1--1--1,,1|(1157,213)|
+1,27,23,22,1,0,43,0,0,64,0,-1--1--1,,1|(1277,307)|
+1,28,24,22,1,0,43,0,0,192,0,-1--1--1,,1|(1311,261)|
+1,29,25,24,1,0,45,0,0,192,0,-1--1--1,,1|(1439,309)|
+12,30,0,885,143,13,13,5,7,0,3,-1,0,0,0,251-2-7,0-0-0,|||251-2-7,0,0,0,0,0,0
+R1
+12,31,0,1047,141,13,13,4,7,0,3,-1,0,0,0,17-128-2,0-0-0,|||17-128-2,0,0,0,0,0,0
+B2
+12,32,0,904,260,14,14,4,7,0,3,-1,0,0,0,17-128-2,0-0-0,|||17-128-2,0,0,0,0,0,0
+B1
+12,33,0,1036,262,14,14,5,7,0,3,-1,0,0,0,251-2-7,0-0-0,|||251-2-7,0,0,0,0,0,0
+R2
+12,34,0,548,553,300,200,0,15,0,0,1,0,0,0,0,0,0,0,0,0
+Hardwood_-_Longleaf
+///---\\\
+:GRAPH Hardwood_-_Longleaf
+:TITLE Hardwood - Longleaf
+:SCALE
+:VAR "HardWood (HW)"
+:DATASET 
+:VAR "LongLeaf (LL)"
+:DATASET 
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:init HW
+9:current
+19:100,0
+24:0
+25:100
+26:100
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:0
+72:0
+73:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:Arial|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1
